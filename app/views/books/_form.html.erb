@@ -14,7 +14,7 @@
       <%= f.hidden_field :rate, id: :review_star, class: 'form-control' %>
     </div>
 
-    <script src="raty.js">
+    <script>
     $(document).on('turbolinks:load', function() {
       $('#star').empty();
       $('#star').raty({
@@ -27,8 +27,7 @@
       });
     });
     </script>
-  <% else %>
-    <%= render "static_rate", book: book %>
+
   <% end %>
 
   <div class="form-group">
