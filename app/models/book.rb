@@ -5,6 +5,10 @@ class Book < ApplicationRecord
   has_many :favorites
   has_many :book_comments
 
+  scope :latest, -> {order(created_at: :desc)}
+  scope :old, -> {order(created_at: :asc)}
+  scope :star_count, -> {order(rate: :desc)}
+
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
